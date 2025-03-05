@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime no checker</title>
+    <link rel="icon" type="images/png" href="">
+    <style>
+        body {
+            margin: 0;
+        }
+        .ft1 {
+            font-family: "Atkinson Hyperlegible Next", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+        }
+        .ca1 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inp1 {
+            width: 200px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 900;
+        }
+        .inp1::-webkit-input-placeholder {
+            filter: brightness(60%);
+        }
+
+        .it1::-webkit-inner-spin-button ,
+        .it1::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+        }
+        ::-webkit-scrollbar {
+            width: 15px;
+            background-color: rgba(83, 82, 82,0.2);
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: black;
+        }
+        .bt1 {
+            width: 100px;
+            height: 50px;
+            border-radius: 15px;
+            border: none;
+            font-weight: 900;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .bt1:hover {
+            filter: brightness(70%);
+        }
+        .divl1 {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="ft1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next&display=swap" rel="stylesheet">
+        <!--JS stuff:
+            scoreos = ttp1.offsetTop
+            po = window.pageYOffset
+        -->
+
+    <p style="font-size: 49px;font-weight: 900;text-align: center;user-select: none;">Prime No checker</p>
+    <p style="font-size: 20px;font-weight: 900;text-align: center;">Enter the no:</p>
+    <div class="ca1"><input class="inp1 it1" type="number"placeholder="Enter no." id="inp1"></div>
+    <br><div class="ca1"><button class="bt1 ft1" onclick="enter1()">Enter⬆️</button></div><br>
+    <div class="ca1">
+        <div class="divl1">
+        <p style="font-size: 30px;font-weight: 900;text-align: center;margin-bottom: 0;" id="result">Enter a valid no.</p>
+        </div>
+    </div>
+    <script>
+        var dl = []
+        var input1 = 0 
+        function enter1() {
+                input1 = parseInt(document.getElementById("inp1").value);
+                if (isNaN(input1) || input1 === 0) {
+                    alert("Sorry!!Enter a no.")
+                }
+                else {
+                    dl = []
+                    calculate1()
+                }
+        }
+        function calculate1() {
+            var i = 2;
+            var cal1 = 0
+            while(i< input1-1) {
+                cal1 = input1 % i
+                if(cal1 === 0) {
+                    dl.push(i)
+                }
+                i+= 1
+            }
+            if (dl.length === 0) {
+                result1("false")
+            }
+            else {
+                result1("true")
+            }
+        }
+        function result1(result1) {
+            if(result1 === "false") {
+                pn1()
+            }
+            else {
+                cn1()
+            }
+        }
+        function pn1() {
+                document.getElementById("result").innerHTML = input1 + " is a prime no"
+        }
+        function cn1() {
+            document.getElementById("result").innerHTML = input1 + " is divisible by :"
+            i = 0;
+            while(i < dl.length) {
+                console.log(dl[i])
+                document.getElementById("result").innerHTML += "<br>" + input1 + " / " + dl[i] + " = " + input1/dl[i]
+                i+= 1
+            }
+            if(dl.length < 6 ) {
+                            document.getElementById("result").innerHTML += "<br>💡" + input1 + " is divisible by " + dl.length + "(" + (dl.length/input1).toFixed(2) + "%) nos"
+            }
+            else {
+            document.getElementById("result").innerHTML += "<br>💡" + input1 + " is divisible by <span style='background:yellow'>" + dl.length + "</span> (" + (dl.length/input1).toFixed(2) + "%) nos"
+            }
+        }
+    </script>
+</body>
+</html>
