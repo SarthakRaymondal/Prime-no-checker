@@ -133,10 +133,10 @@
                 i+= 1
             }
             if(dl.length < 6 ) {
-                            document.getElementById("result").innerHTML += "<br>💡" + input1 + " is divisible by " + dl.length + "(" + (dl.length/input1).toFixed(2) + "%) nos"
+                            document.getElementById("result").innerHTML += "<br>💡" + input1 + " is divisible by " + dl.length + "(" + (dl.length/input1*100).toFixed(2) + "%) nos"
             }
             else {
-            document.getElementById("result").innerHTML += "<br>💡" + input1 + " is divisible by <span style='background:yellow'>" + dl.length + "</span> (" + (dl.length/input1).toFixed(2) + "%) nos"
+            document.getElementById("result").innerHTML += "<br>💡" + input1 + " is divisible by <span style='background:yellow'>" + dl.length + "</span> (" + (dl.length/input1*100).toFixed(2) + "%) nos"
             }
         }
     </script>
