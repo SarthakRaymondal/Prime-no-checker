@@ -98,17 +98,18 @@
         function calculate1() {
             var i = 1;
             var cal1 = 0
-            while(i< input1+1) {
+            while(i< input1) {
                 cal1 = input1 % i
                 if(cal1 === 0) {
                     dl.push(i)
                 }
                 i+= 1
             }
-            if (dl.length === 0) {
+            if (dl.length === 0 || dl.length === 1 && dl[0] === 1) {
                 result1("false")
             }
             else {
+                dl.push(input1)
                 result1("true")
             }
         }
